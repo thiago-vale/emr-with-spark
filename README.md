@@ -400,4 +400,4 @@ MIT License - veja [LICENSE](LICENSE)
 
 **Status:** ✅ Produção
 **Última atualização:** 1 de abril de 2026
-**Mantido por:** [Seu nome]
+**Mantido por:** Thiago Vale
