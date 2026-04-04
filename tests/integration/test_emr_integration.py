@@ -1,14 +1,18 @@
 # tests/integration/test_emr_integration.py
 
-import boto3
+from unittest.mock import patch, MagicMock
 from lambda_function import handler
-from moto import mock_emr
 
-@mock_emr
-def test_emr_integration():
-    client = boto3.client("emr", region_name="us-east-1")
 
-    # Executa a lambda
+@patch("lambda_function.boto3.client")
+def test_emr_integration(mock_boto_client):
+    mock_emr = MagicMock()
+    mock_boto_client.return_value = mock_emr
+
+    mock_emr.run_job_flow.return_value = {
+        "JobFlowId": "j-123456"
+    }
+
     response = handler({}, {})
 
     assert response["statusCode"] == 200
