@@ -27,6 +27,14 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+        - name: Run unit tests
+          run: |
+            pytest tests/unit
+
     - name: Build Lambda package
       run: |
         sh scripts/build_lambda_package.sh
