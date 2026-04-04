@@ -33,6 +33,7 @@ jobs:
 
     - name: Run unit tests
       run: |
+        export PYTHONPATH=.
         pytest tests/unit
 
     - name: Build Lambda package

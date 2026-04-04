@@ -33,8 +33,9 @@ jobs:
 
     - name: Run unit tests
       run: |
+        export PYTHONPATH=.
         pytest tests/unit
-        
+
     - name: Build Lambda package
       run: |
         sh scripts/build_lambda_package.sh
